@@ -17,6 +17,10 @@ import time
 from micropython import const
 from micropython_ms5611.i2c_helpers import CBits, RegisterStruct
 
+try:
+    from typing import Tuple
+except ImportError:
+    pass
 
 __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/jposada202020/MicroPython_MS5611.git"
@@ -39,16 +43,41 @@ TEMP_OSR_512 = const(1)
 TEMP_OSR_1024 = const(2)
 TEMP_OSR_2048 = const(3)
 TEMP_OSR_4096 = const(4)
-temperature_oversample_rate_values = (TEMP_OSR_256, TEMP_OSR_512, TEMP_OSR_1024, TEMP_OSR_2048, TEMP_OSR_4096)
-temp_command_values = {TEMP_OSR_256: 0x50, TEMP_OSR_512: 0x52, TEMP_OSR_1024: 0x54, TEMP_OSR_2048: 0x56, TEMP_OSR_4096: 0x58}
+temperature_oversample_rate_values = (
+    TEMP_OSR_256,
+    TEMP_OSR_512,
+    TEMP_OSR_1024,
+    TEMP_OSR_2048,
+    TEMP_OSR_4096,
+)
+temp_command_values = {
+    TEMP_OSR_256: 0x50,
+    TEMP_OSR_512: 0x52,
+    TEMP_OSR_1024: 0x54,
+    TEMP_OSR_2048: 0x56,
+    TEMP_OSR_4096: 0x58,
+}
 
 PRESS_OSR_256 = const(0)
 PRESS_OSR_512 = const(1)
 PRESS_OSR_1024 = const(2)
 PRESS_OSR_2048 = const(3)
 PRESS_OSR_4096 = const(4)
-pressure_oversample_rate_values = (PRESS_OSR_256, PRESS_OSR_512, PRESS_OSR_1024, PRESS_OSR_2048, PRESS_OSR_4096)
-pressure_command_values = {PRESS_OSR_256: 0x40, PRESS_OSR_512: 0x42, PRESS_OSR_1024: 0x44, PRESS_OSR_2048: 0x46, PRESS_OSR_4096: 0x48}
+pressure_oversample_rate_values = (
+    PRESS_OSR_256,
+    PRESS_OSR_512,
+    PRESS_OSR_1024,
+    PRESS_OSR_2048,
+    PRESS_OSR_4096,
+)
+pressure_command_values = {
+    PRESS_OSR_256: 0x40,
+    PRESS_OSR_512: 0x42,
+    PRESS_OSR_1024: 0x44,
+    PRESS_OSR_2048: 0x46,
+    PRESS_OSR_4096: 0x48,
+}
+
 
 class MS5611:
     """Driver for the MS5611 Sensor connected over I2C.
@@ -128,10 +157,10 @@ class MS5611:
 
         if TEMP < 2000:
             T2 = dT * dT / 2**31.0
-            OFF2 = 5 * (TEMP - 2000)**2.0 / 2
+            OFF2 = 5 * (TEMP - 2000) ** 2.0 / 2
             SENS2 = 5 * (TEMP - 2000) / 4
             if TEMP < -1500:
-                OFF2 = OFF2 + 7 * (TEMP + 1500)**2.0
+                OFF2 = OFF2 + 7 * (TEMP + 1500) ** 2.0
                 SENS2 = SENS2 + 11 * (TEMP + 1500) / 2
             TEMP = TEMP - T2
             OFF = OFF - OFF2
@@ -139,7 +168,7 @@ class MS5611:
 
         P = (SENS * D1 / 2**21.0 - OFF) / 2**15.0
 
-        return TEMP/100, P/1000
+        return TEMP / 100, P / 1000
 
     @property
     def temperature_oversample_rate(self) -> str:
@@ -160,13 +189,21 @@ class MS5611:
         | :py:const:`ms5611.TEMP_OSR_4096` | :py:const:`4` |
         +----------------------------------+---------------+
         """
-        values = ("TEMP_OSR_256", "TEMP_OSR_512", "TEMP_OSR_1024", "TEMP_OSR_2048", "TEMP_OSR_4096")
+        values = (
+            "TEMP_OSR_256",
+            "TEMP_OSR_512",
+            "TEMP_OSR_1024",
+            "TEMP_OSR_2048",
+            "TEMP_OSR_4096",
+        )
         return values[self._temperature_oversample_rate]
 
     @temperature_oversample_rate.setter
     def temperature_oversample_rate(self, value: int) -> None:
         if value not in temperature_oversample_rate_values:
-            raise ValueError("Value must be a valid temperature_oversample_rate setting")
+            raise ValueError(
+                "Value must be a valid temperature_oversample_rate setting"
+            )
         self._temperature_oversample_rate = value
         self._temp_command = temp_command_values[value]
 
@@ -189,7 +226,13 @@ class MS5611:
         | :py:const:`ms5611.PRESS_OSR_4096` | :py:const:`4` |
         +-----------------------------------+---------------+
         """
-        values = ("PRESS_OSR_256", "PRESS_OSR_512", "PRESS_OSR_1024", "PRESS_OSR_2048", "PRESS_OSR_4096")
+        values = (
+            "PRESS_OSR_256",
+            "PRESS_OSR_512",
+            "PRESS_OSR_1024",
+            "PRESS_OSR_2048",
+            "PRESS_OSR_4096",
+        )
         return values[self._pressure_oversample_rate]
 
     @pressure_oversample_rate.setter

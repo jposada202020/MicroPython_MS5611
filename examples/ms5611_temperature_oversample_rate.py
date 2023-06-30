@@ -13,7 +13,10 @@ ms.temperature_oversample_rate = ms5611.TEMP_OSR_256
 
 while True:
     for temperature_oversample_rate in ms5611.temperature_oversample_rate_values:
-        print("Current Temperature oversample rate setting: ", ms.temperature_oversample_rate)
+        print(
+            "Current Temperature oversample rate setting: ",
+            ms.temperature_oversample_rate,
+        )
         for _ in range(5):
             temp, press = ms.measurements
             print(f"Temperature: {temp:.2f}C")
