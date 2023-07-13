@@ -19,7 +19,7 @@ while True:
         )
         for _ in range(5):
             temp, press = ms.measurements
-            print(f"Temperature: {temp:.2f}C")
+            print(f"Temperature: {temp:.2f}°C")
             print(f"Pressure: {press:.2f}KPa")
             print()
             time.sleep(1)

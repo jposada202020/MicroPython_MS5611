@@ -1,8 +1,17 @@
 {
   "urls": [
-    ["micropython_ms5611/__init__.py", "github:jposada202020/MicroPython_MS5611/micropython_ms5611/__init__.py"],
-    ["micropython_ms5611/i2c_helpers.py", "github:jposada202020/MicroPython_MS5611/micropython_ms5611/i2c_helpers.py"],
-    ["micropython_ms5611/ms5611.py", "github:jposada202020/MicroPython_MS5611/micropython_ms5611/ms5611.py"]
+    [
+      "micropython_ms5611/__init__.py",
+      "github:jposada202020/MicroPython_MS5611/micropython_ms5611/__init__.py"
+    ],
+    [
+      "micropython_ms5611/i2c_helpers.py",
+      "github:jposada202020/MicroPython_MS5611/micropython_ms5611/i2c_helpers.py"
+    ],
+    [
+      "micropython_ms5611/ms5611.py",
+      "github:jposada202020/MicroPython_MS5611/micropython_ms5611/ms5611.py"
+    ]
   ],
-  "version": "0.1"
+  "version": "1"
 }

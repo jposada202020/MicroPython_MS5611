@@ -11,7 +11,7 @@ ms = ms5611.MS5611(i2c)
 
 while True:
     temp, press = ms.measurements
-    print(f"Temperature: {temp:.2f}C")
+    print(f"Temperature: {temp:.2f}°C")
     print(f"Pressure: {press:.2f}KPa")
     print()
     time.sleep(2)

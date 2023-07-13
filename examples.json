@@ -1,8 +1,17 @@
 {
   "urls": [
-    ["micropython_ms5611/examples/ms5611_simpletest.py", "github:jposada202020/MicroPython_MS5611/examples/ms5611_simpletest.py"],
-    ["micropython_ms5611/examples/ms5611_pressure_oversample_rate.py", "github:jposada202020/MicroPython_MS5611/examples/ms5611_pressure_oversample_rate.py"],
-    ["micropython_ms5611/examples/ms5611_temperature_oversample_rate.py", "github:jposada202020/MicroPython_MS5611/examples/ms5611_temperature_oversample_rate.py"]
+    [
+      "micropython_ms5611/examples/ms5611_simpletest.py",
+      "github:jposada202020/MicroPython_MS5611/examples/ms5611_simpletest.py"
+    ],
+    [
+      "micropython_ms5611/examples/ms5611_pressure_oversample_rate.py",
+      "github:jposada202020/MicroPython_MS5611/examples/ms5611_pressure_oversample_rate.py"
+    ],
+    [
+      "micropython_ms5611/examples/ms5611_temperature_oversample_rate.py",
+      "github:jposada202020/MicroPython_MS5611/examples/ms5611_temperature_oversample_rate.py"
+    ]
   ],
-  "version": "0.1"
+  "version": "1"
 }

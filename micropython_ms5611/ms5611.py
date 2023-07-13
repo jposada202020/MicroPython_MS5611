@@ -102,11 +102,14 @@ class MS5611:
     .. code-block:: python
 
         i2c = I2C(1, sda=Pin(2), scl=Pin(3))
-        ms5611 = ms5611.MS5611(i2c)
+        ms = ms5611.MS5611(i2c)
 
     Now you have access to the attributes
 
     .. code-block:: python
+
+        temp = ms.temperature
+        press = ms.pressure
 
     """
 
@@ -140,13 +143,13 @@ class MS5611:
         """
         press_buf = bytearray(3)
         self._i2c.writeto(self._address, bytes([self._pressure_command]))
-        time.sleep_ms(15)
+        time.sleep(0.015)
         self._i2c.readfrom_mem_into(self._address, _DATA, press_buf)
         D1 = press_buf[0] << 16 | press_buf[1] << 8 | press_buf[0]
 
         temp_buf = bytearray(3)
         self._i2c.writeto(self._address, bytes([self._temp_command]))
-        time.sleep_ms(15)
+        time.sleep(0.015)
         self._i2c.readfrom_mem_into(self._address, _DATA, temp_buf)
         D2 = temp_buf[0] << 16 | temp_buf[1] << 8 | temp_buf[0]
 
