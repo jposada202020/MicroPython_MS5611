@@ -1,28 +1,11 @@
-Introduction
-============
+⛔️ DEPRECATED
+===============
 
+This repository is no longer supported, please consider using alternatives.
 
-.. image:: https://readthedocs.org/projects/micropython-ms5611/badge/?version=latest
-    :target: https://micropython-ms5611.readthedocs.io/en/latest/
-    :alt: Documentation Status
-
-
-.. image:: https://img.shields.io/badge/micropython-Ok-purple.svg
-    :target: https://micropython.org
-    :alt: micropython
-
-.. image:: https://img.shields.io/pypi/v/micropython-ms5611.svg
-    :alt: latest version on PyPI
-    :target: https://pypi.python.org/pypi/micropython-ms5611
-
-.. image:: https://static.pepy.tech/personalized-badge/micropython-ms5611?period=total&units=international_system&left_color=grey&right_color=blue&left_text=Pypi%20Downloads
-    :alt: Total PyPI downloads
-    :target: https://pepy.tech/project/micropython-ms5611
-
-.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
-    :target: https://github.com/psf/black
-    :alt: Code Style: Black
-
+.. image:: http://unmaintained.tech/badge.svg
+  :target: http://unmaintained.tech
+  :alt: No Maintenance Intended
 MicroPython Driver for the TE MS5611 Pressure and Temperature Sensor
 
 
